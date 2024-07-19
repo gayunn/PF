@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{ lang | default: 'ko' }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="robots" content="noindex" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    {%- if title -%}
+    <title>김가윤의 포트폴리오</title>
+    {%- else -%}
+    <!-- [html-validate-enable element-permitted-occurrences] -->
+    {%- endif -%} {%- if css -%} {%- for css in css -%}
+    <link rel="stylesheet" href="{{ css | replace: '.scss', '.css' }}" />
+    {%- endfor -%} {%- endif -%} {%- if js -%} {%- for js in js -%}
+    <script type="module" src="{{ js }}"></script>
+    {%- endfor -%} {%- endif -%}
+  </head>
+  <body>
+    {{ content }}
+  </body>
+</html>
