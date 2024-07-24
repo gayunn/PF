@@ -1,25 +1,54 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ lang | default: 'ko' }}">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="robots" content="noindex" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
     {%- if title -%}
-    <title>김가윤의 포트폴리오</title>
+    <title>study</title>
     {%- else -%}
     <!-- [html-validate-enable element-permitted-occurrences] -->
     {%- endif -%} {%- if css -%} {%- for css in css -%}
     <link rel="stylesheet" href="{{ css | replace: '.scss', '.css' }}" />
     {%- endfor -%} {%- endif -%} {%- if js -%} {%- for js in js -%}
     <script type="module" src="{{ js }}"></script>
-    {%- endfor -%} {%- endif -%}
+    {%- endfor -%} {%- endif -%} {%- if font -%}{%- for font in font -%}
+    <script>
+      (function (d) {
+        var config = {
+            kitId: "lrj6esu",
+            scriptTimeout: 3000,
+            async: true,
+          },
+          h = d.documentElement,
+          t = setTimeout(function () {
+            h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+          }, config.scriptTimeout),
+          tk = d.createElement("script"),
+          f = false,
+          s = d.getElementsByTagName("script")[0],
+          a;
+        h.className += " wf-loading";
+        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+          a = this.readyState;
+          if (f || (a && a != "complete" && a != "loaded")) return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config);
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s);
+      })(document);
+    </script>
+    {%- endfor -%}{%- endif -%}
+    <link rel="stylesheet" href="https://use.typekit.net/twt6cgs.css" />
   </head>
   <body>
     {{ content }}

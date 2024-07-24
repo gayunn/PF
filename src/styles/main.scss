@@ -1,0 +1,26 @@
+@use "../_includes/utils" as *;
+@use "./reset";
+@use "./intro";
+@use "./header";
+@use "./common";
+@use "./careers";
+
+.main-page {
+  @mixin releway() {
+    font-family: "raleway", sans-serif;
+  }
+  @mixin pretendard() {
+    font-family: "pretendard", sans-serif;
+  }
+}
+
+.main-section {
+  .section-title {
+    @include releway();
+    font-size: 30px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-weight: 600;
+    margin: 10px 20px;
+  }
+}

@@ -1,0 +1,197 @@
+.visually-hidden:not(:focus) {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+:where(*),
+:where(*::before),
+:where(*::after) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:where(html) {
+  -webkit-text-size-adjust: none;
+}
+
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
+  display: block;
+  max-width: 100%;
+}
+
+:where(ul, ol) {
+  list-style: none;
+}
+
+:where(a) {
+  color: inherit;
+  text-decoration: none;
+}
+
+:where(button) {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+}
+
+.section--intro {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  z-index: 200;
+  background: #023e87;
+}
+.section--intro .intro-title {
+  width: 100%;
+  white-space: nowrap;
+  display: block;
+  align-self: stretch;
+  color: #d9d9d9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 5%);
+  text-align: center;
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: var(--text-black-white, #000);
+  font-family: "Red Hat Display", sans-serif;
+  font-size: fv(100);
+  font-style: normal;
+  font-weight: 700;
+  line-height: fv(100);
+  box-sizing: border-box;
+  z-index: 1;
+  animation: txtTop 0.5s 0.3s linear forwards, txtcolor 0.5s 0.5s linear forwards;
+}
+.section--intro .intro-title__top {
+  transition: transform 0.5s ease-in-out;
+}
+.section--intro .intro-title__bottom {
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+}
+.section--intro .intro-title__bottom :nth-child(8) {
+  width: 30px;
+}
+.section--intro .intro-title .letter {
+  display: inline-block;
+}
+@keyframes txtTop {
+  from {
+    transform: translate(-50%, 2%);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes txtcolor {
+  from {
+    color: #d9d9d9;
+  }
+  to {
+    color: #fff;
+  }
+}
+@keyframes introSkip {
+  0% {
+    clip-path: circle(150% at 0 0);
+  }
+  100% {
+    clip-path: circle(0 at 0 0);
+  }
+}
+.section--intro .skip {
+  color: #fff;
+  text-align: center;
+  font-family: "Red Hat Display";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+.section--intro .skip::after {
+  content: "";
+  margin-top: 8px;
+  display: block;
+  width: auto;
+  height: 2px;
+  align-self: stretch;
+  opacity: 0.3;
+  background: #d9d9d9;
+}
+
+.path-animation {
+  animation: introSkip 1s ease forwards;
+}
+
+.header {
+  width: 100%;
+  height: fv(140);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+.header .logo {
+  display: block;
+  font-family: "raleway", sans-serif;
+  font-size: 40px;
+}
+.header .gnb-btn {
+  display: block;
+  width: 34px;
+  outline: none;
+  border: none;
+  position: relative;
+}
+.header .gnb-btn .box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.header .gnb-btn .box span {
+  display: inline-block;
+  background-color: #000;
+  width: 100%;
+  height: 4px;
+}
+
+body {
+  font-family: "Raleway", "pretendard", sans-serif;
+}
+
+.a11y-hidden {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  clip-path: circle(0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+}
