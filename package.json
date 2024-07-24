@@ -2,8 +2,8 @@
   "name": "portfolio",
   "private": true,
   "scripts": {
-    "build": "eleventy && node copy-build.js",
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "build": "eleventy && node cleanup.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
