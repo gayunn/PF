@@ -20,9 +20,9 @@ module.exports = function(eleventyConfig) {
 
   return {
     dir: {
-      input: "docs",
+      input: "src",
       output: "docs",
-      includes: "_includes"
+      includes: "includes",
     }
   };
 };
