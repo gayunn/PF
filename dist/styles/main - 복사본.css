@@ -9,7 +9,6 @@
 
 html,
 body {
-  margin: 0;
   height: 100%;
 }
 
@@ -155,8 +154,8 @@ body {
   padding: 10px 30px;
 }
 .header .logo {
-  font-family: "raleway", sans-serif;
   display: block;
+  font-family: "raleway", sans-serif;
   font-size: 40px;
 }
 .header .gnb-btn {
@@ -195,17 +194,4 @@ body {
   border: 0;
   padding: 0;
   white-space: nowrap;
-}
-
-.section-careers {
-  position: relative;
-}
-
-.main-section .section-title {
-  font-family: "raleway", sans-serif;
-  font-size: 30px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  font-weight: 600;
-  margin: 10px 20px;
 }
