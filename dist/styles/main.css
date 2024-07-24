@@ -145,3 +145,53 @@ body {
 .path-animation {
   animation: introSkip 1s ease forwards;
 }
+
+.header {
+  width: 100%;
+  height: fv(140);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+.header .logo {
+  display: block;
+  font-family: "raleway", sans-serif;
+  font-size: 40px;
+}
+.header .gnb-btn {
+  display: block;
+  width: 34px;
+  outline: none;
+  border: none;
+  position: relative;
+}
+.header .gnb-btn .box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.header .gnb-btn .box span {
+  display: inline-block;
+  background-color: #000;
+  width: 100%;
+  height: 4px;
+}
+
+body {
+  font-family: "Raleway", "pretendard", sans-serif;
+}
+
+.a11y-hidden {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  clip-path: circle(0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+}

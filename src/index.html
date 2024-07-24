@@ -1,9 +1,27 @@
 ---
 layout: default
-title: My Page
-css: "./styles/main.scss"
+title: G
+css:
+  - "./styles/main.scss"
 ---
 
-<div class="intro-page">
-    {% include './_partials/intro.html' %}
-</div>
+<!-- <div class="intro-page">
+  <div class="section section--intro popup-end">
+    <div class="centered-content">
+      <div class="intro-title">
+        <p class="intro-title__top">Portfolio</p>
+        <div class="intro-title__bottom">
+          <span class="text">Hi there</span>
+          <span class="text">i'm gayun kim</span>
+          <span class="text">nice to meet you guys</span>
+          <span class="text">welcome</span>
+          <span class="text">web publisher</span>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="skip" id="skipButton">skip</button>
+  </div>
+</div> -->
+
+{% include './_partials/header.html' %}
+<main class="main-page">{% include './_partials/main.html' %} {% include './_partials/careers.html' %}</main>
