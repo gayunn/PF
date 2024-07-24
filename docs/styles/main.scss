@@ -5,18 +5,18 @@
 @use "./common";
 @use "./careers";
 
-.main-page {
-  @mixin releway() {
-    font-family: "raleway", sans-serif;
-  }
-  @mixin pretendard() {
-    font-family: "pretendard", sans-serif;
-  }
-}
+// .main-page {
+//   @mixin releway() {
+//     font-family: "raleway", sans-serif;
+//   }
+//   @mixin pretendard() {
+//     font-family: "pretendard", sans-serif;
+//   }
+// }
 
 .main-section {
   .section-title {
-    @include releway();
+    font-family: "raleway", sans-serif;
     font-size: 30px;
     text-transform: uppercase;
     white-space: nowrap;

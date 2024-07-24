@@ -20,7 +20,7 @@ module.exports = function(eleventyConfig) {
 
   return {
     dir: {
-      input: "src",
+      input: "docs",
       output: "dist",
       includes: "_includes"
     }
