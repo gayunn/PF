@@ -2,7 +2,7 @@
   "name": "portfolio",
   "private": true,
   "scripts": {
-    "build": "eleventy",
+    "build": "eleventy && cp -r _site/* docs/",
     "start": "eleventy --serve"
   },
   "devDependencies": {
