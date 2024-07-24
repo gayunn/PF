@@ -200,6 +200,29 @@ body {
 .section-careers {
   position: relative;
 }
+.section-careers .careers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.section-careers .careers-list .careers-item {
+  width: 100%;
+}
+.section-careers .careers-list .careers-item .company-name {
+  display: block;
+  font-size: 25px;
+}
+.section-careers .careers-list .careers-item .careers-duration {
+  font-family: "pretendard", sans-serif;
+  display: inline-block;
+  color: #999;
+  font-weight: 600;
+}
+.section-careers .careers-list .careers-item .careers-duration .final-date {
+  color: #19488b;
+}
 
 .main-section .section-title {
   font-family: "raleway", sans-serif;
