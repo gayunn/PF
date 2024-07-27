@@ -2,26 +2,80 @@
   position: relative;
 }
 .section-careers .careers-list {
+  font-family: "raleway", sans-serif;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 0 20px;
   box-sizing: border-box;
 }
 .section-careers .careers-list .careers-item {
+  font-family: "Pretendard", sans-serif;
   width: 100%;
-  line-height: 1;
+  line-height: 35px;
 }
 .section-careers .careers-list .careers-item .company-name {
   display: block;
-  font-size: 25px;
+  font-size: 32px;
 }
 .section-careers .careers-list .careers-item .careers-duration {
-  font-family: "pretendard", sans-serif;
   display: inline-block;
   color: #999;
   font-weight: 600;
 }
 .section-careers .careers-list .careers-item .careers-duration .final-date {
   color: #19488b;
+}
+
+.section-project .project-inner {
+  width: 100%;
+}
+.section-project .project-inner .project-list {
+  display: flex;
+  flex-direction: column;
+  flex-direction: column-reverse;
+}
+.section-project .project-inner .project-list .project-item {
+  width: 100%;
+  position: relative;
+}
+.section-project .project-inner .project-list .project-item::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #ddd;
+  transform-origin: center;
+}
+.section-project .project-inner .project-list .project-item::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #ddd;
+}
+.section-project .project-inner .project-list .project-item:hover::before {
+  float: right;
+  width: 100%;
+  transition: width 0.5s ease;
+}
+.section-project .project-inner .project-list .project-item:hover::after {
+  width: 100%;
+  transition: width 0.5s ease;
+}
+.section-project .project-inner .project-list .project-link {
+  display: inline-block;
+  display: grid;
+  grid-template-columns: 10fr 26fr 50fr;
+  width: 100%;
+  padding: 100px 0;
+  margin-inline: auto;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+.section-project .project-inner .project-list .project-link .project-name {
+  font-size: 22px;
+  font-weight: 700;
+}
+.section-project .project-inner .project-list .project-link .project-name .project-sub {
+  display: block;
 }

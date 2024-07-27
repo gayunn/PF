@@ -37,6 +37,23 @@ const MainModule = (() => {
         console.error("Error handling resize event:", error);
       }
     });
+
+    // Scroll event listener
+    window.addEventListener('scroll', function() {
+      const worksSection = document.getElementById('works');
+      const mainBody = document.querySelector(".main-page");
+      
+      if (worksSection && mainBody) {
+          const worksSectionRect = worksSection.getBoundingClientRect();
+  
+          // 화면 상단이 worksSection의 상단에 닿았을 때 또는 지나갔을 때
+          if (worksSectionRect.top <= 0) {
+              mainBody.classList.add("main-dark");
+          } else {
+              mainBody.classList.remove("main-dark");
+          }
+      }
+  });
   };
 
   return { init };
