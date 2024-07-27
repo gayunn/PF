@@ -2,9 +2,8 @@ const sass = require("sass");
 const path = require("path");
 
 module.exports = function(eleventyConfig) {
+  // Sass 컴파일 설정
   eleventyConfig.addTemplateFormats("scss");
-
-  // Compile Sass to CSS
   eleventyConfig.addExtension("scss", {
     outputFileExtension: "css",
     compile: async function(inputContent, inputPath) {
@@ -15,8 +14,12 @@ module.exports = function(eleventyConfig) {
     }
   });
 
-  // CSS 파일을 출력 디렉토리로 복사
-  eleventyConfig.addPassthroughCopy("styles");
+  // CSS 파일 복사
+  eleventyConfig.addPassthroughCopy("src/styles");
+  // JavaScript 파일 복사
+  eleventyConfig.addPassthroughCopy("src/includes/js");
+  // 다른 정적 파일들도 필요하다면 여기에 추가
+  // eleventyConfig.addPassthroughCopy("src/images");
 
   return {
     dir: {

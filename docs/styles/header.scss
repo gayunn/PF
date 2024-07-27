@@ -1,0 +1,40 @@
+.header {
+  width: 100%;
+  height: fv(140);
+
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+
+  .logo {
+    font-family: "raleway", sans-serif;
+    display: block;
+    font-size: 40px;
+  }
+
+  .gnb {
+    &-btn {
+      display: block;
+      width: 34px;
+      outline: none;
+      border: none;
+
+      position: relative;
+
+      .box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+
+        span {
+          display: inline-block;
+          background-color: #000;
+          width: 100%;
+          height: 4px;
+        }
+      }
+    }
+  }
+}
