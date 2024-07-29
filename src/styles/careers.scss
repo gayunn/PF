@@ -4,23 +4,31 @@
 .section-careers {
   position: relative;
 
+  @mixin releway() {
+    font-family: "raleway", sans-serif;
+  }
+  
+  @mixin pretendard() {
+    font-family: "Pretendard", sans-serif;
+  }
+
   .careers-list {
+    @include releway();
     display: flex;
     flex-direction: column;
     gap: 30px;
     box-sizing: border-box;
 
     .careers-item {
+      @include pretendard();
       width: 100%;
-      line-height: 20px;
-
+      line-height: 35px;
       .company-name {
         display: block;
-        font-size: 25px;
+        font-size: 32px;
       }
 
       .careers-duration {
-        @include pretendard();
         display: inline-block;
         color: #999;
         font-weight: 600;
@@ -33,31 +41,75 @@
   }
 }
 
-.section-project {
-  .project-inner {
-    position: relative;
-    .project-list {
+.section-project{
+  .project-inner{
+    width: 100%;
+
+    .project-list{
       display: flex;
       flex-direction: column;
-      flex-wrap: wrap;
+      flex-direction: column-reverse;
 
-      .project-item {
-        width: 50%;
-        text-align: center;
-        display: flex;
-        text-align: left;
-        padding: 5px 20px;
+      .project-item{
+        width: 100%;
+        position: relative;
 
-        .project-name {
+        &::before{
+          content: "";
           display: block;
-          font-size: 25px;
+          width: 0;
+          height: 1px;
+          background-color: #ddd;
+          transform-origin: center;
         }
 
-        .project-desc {
+        &::after{
+          content: "";
           display: block;
-          font-size: 23px;
+          width: 0;
+          height: 1px;
+          background-color: #ddd;
+        }
+
+        &:hover{
+
+          &::before{
+            float: right;
+            width: 100%;
+            transition: width .5s ease;
+            
+          }
+
+          &::after{
+            width: 100%;
+            transition: width .5s ease;
+          }
         }
       }
+
+      .project-link{
+        display: inline-block;
+        display: grid;
+        grid-template-columns: 10fr 26fr 50fr;
+        width: 100%;
+        padding: 100px 0;
+        margin-inline: auto;
+        box-sizing: border-box;
+
+        font-size: 20px;
+
+        .project-name{
+          font-size: 22px;
+          font-weight: 700;
+
+          .project-sub{
+            display: block;
+          }
+        }
+
+      }
+      
     }
   }
+  
 }

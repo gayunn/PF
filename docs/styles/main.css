@@ -201,21 +201,22 @@ body {
   position: relative;
 }
 .section-careers .careers-list {
+  font-family: "raleway", sans-serif;
   display: flex;
   flex-direction: column;
   gap: 30px;
   box-sizing: border-box;
 }
 .section-careers .careers-list .careers-item {
+  font-family: "Pretendard", sans-serif;
   width: 100%;
-  line-height: 20px;
+  line-height: 35px;
 }
 .section-careers .careers-list .careers-item .company-name {
   display: block;
-  font-size: 25px;
+  font-size: 32px;
 }
 .section-careers .careers-list .careers-item .careers-duration {
-  font-family: "pretendard", sans-serif;
   display: inline-block;
   color: #999;
   font-weight: 600;
@@ -226,11 +227,13 @@ body {
 
 .section-project .project-inner {
   position: relative;
+  width: 100%;
 }
 .section-project .project-inner .project-list {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  flex-direction: column-reverse;
 }
 .section-project .project-inner .project-list .project-item {
   width: 50%;
@@ -248,14 +251,82 @@ body {
   font-size: 23px;
 }
 
+.section-project .project-inner .project-list .project-item {
+  width: 100%;
+  position: relative;
+}
+.section-project .project-inner .project-list .project-item::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #ddd;
+  transform-origin: center;
+}
+.section-project .project-inner .project-list .project-item::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #ddd;
+}
+.section-project .project-inner .project-list .project-item:hover::before {
+  float: right;
+  width: 100%;
+  transition: width 0.5s ease;
+}
+.section-project .project-inner .project-list .project-item:hover::after {
+  width: 100%;
+  transition: width 0.5s ease;
+}
+.section-project .project-inner .project-list .project-link {
+  display: inline-block;
+  display: grid;
+  grid-template-columns: 10fr 26fr 50fr;
+  width: 100%;
+  padding: 100px 0;
+  margin-inline: auto;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+.section-project .project-inner .project-list .project-link .project-name {
+  font-size: 22px;
+  font-weight: 700;
+}
+.section-project .project-inner .project-list .project-link .project-name .project-sub {
+  display: block;
+}
+
+.main-page {
+  background-color: #fff;
+  transition: background-color 0.5s ease;
+}
+.main-page.main-dark {
+  background-color: #000;
+  transition: background-color 0.5s ease;
+}
+.main-page.main-dark .section-project {
+  color: #fff;
+}
+
+.main-section {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.main-section .section-inner {
+  font-family: "pretendard", sans-serif;
+  padding: 100px 60px;
+}
 .main-section .section-title {
   font-family: "raleway", sans-serif;
-  font-size: 30px;
+  font-size: 52px;
   text-transform: uppercase;
   white-space: nowrap;
   font-weight: 600;
   margin: 10px 0;
 }
 .main-section .section-inner {
-  margin: 0 40px;
+  margin: 30px 0;
 }
