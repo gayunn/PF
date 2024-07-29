@@ -20,6 +20,18 @@
     text-transform: uppercase;
     white-space: nowrap;
     font-weight: 600;
-    margin: 10px 20px;
+    margin: 10px 0;
   }
+
+  .section-inner {
+    margin: 0 40px;
+  }
+}
+
+@media (max-width: 1380px) {
+  .plan-btn-next {
+    right: 0;
+  }
+
+@media (min-width: 750px) {
 }

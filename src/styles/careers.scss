@@ -1,20 +1,18 @@
+@mixin pretendard() {
+  font-family: "pretendard", sans-serif;
+}
 .section-careers {
   position: relative;
-
-  @mixin pretendard() {
-    font-family: "pretendard", sans-serif;
-  }
 
   .careers-list {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding: 0 20px;
     box-sizing: border-box;
 
     .careers-item {
       width: 100%;
-      line-height: 1;
+      line-height: 20px;
 
       .company-name {
         display: block;
@@ -29,6 +27,35 @@
 
         .final-date {
           color: #19488b;
+        }
+      }
+    }
+  }
+}
+
+.section-project {
+  .project-inner {
+    position: relative;
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+      .project-item {
+        width: 50%;
+        text-align: center;
+        display: flex;
+        text-align: left;
+        padding: 5px 20px;
+
+        .project-name {
+          display: block;
+          font-size: 25px;
+        }
+
+        .project-desc {
+          display: block;
+          font-size: 23px;
         }
       }
     }
