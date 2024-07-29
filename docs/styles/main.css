@@ -226,13 +226,31 @@ body {
 }
 
 .section-project .project-inner {
+  position: relative;
   width: 100%;
 }
 .section-project .project-inner .project-list {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   flex-direction: column-reverse;
 }
+.section-project .project-inner .project-list .project-item {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  text-align: left;
+  padding: 5px 20px;
+}
+.section-project .project-inner .project-list .project-item .project-name {
+  display: block;
+  font-size: 25px;
+}
+.section-project .project-inner .project-list .project-item .project-desc {
+  display: block;
+  font-size: 23px;
+}
+
 .section-project .project-inner .project-list .project-item {
   width: 100%;
   position: relative;
@@ -307,5 +325,8 @@ body {
   text-transform: uppercase;
   white-space: nowrap;
   font-weight: 600;
+  margin: 10px 0;
+}
+.main-section .section-inner {
   margin: 30px 0;
 }

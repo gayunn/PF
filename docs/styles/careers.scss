@@ -1,3 +1,6 @@
+@mixin pretendard() {
+  font-family: "pretendard", sans-serif;
+}
 .section-careers {
   position: relative;
 
@@ -39,7 +42,34 @@
   }
 }
 
+.section-project {
+  .project-inner {
+    position: relative;
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
 
+      .project-item {
+        width: 50%;
+        text-align: center;
+        display: flex;
+        text-align: left;
+        padding: 5px 20px;
+
+        .project-name {
+          display: block;
+          font-size: 25px;
+        }
+
+        .project-desc {
+          display: block;
+          font-size: 23px;
+        }
+      }
+    }
+  }
+}
 .section-project{
   .project-inner{
     width: 100%;

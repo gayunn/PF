@@ -1,3 +1,6 @@
+@mixin pretendard() {
+  font-family: "pretendard", sans-serif;
+}
 .section-careers {
   position: relative;
 
@@ -20,7 +23,6 @@
       @include pretendard();
       width: 100%;
       line-height: 35px;
-      
       .company-name {
         display: block;
         font-size: 32px;
@@ -38,7 +40,6 @@
     }
   }
 }
-
 
 .section-project{
   .project-inner{
@@ -105,7 +106,6 @@
             display: block;
           }
         }
-
 
       }
       
