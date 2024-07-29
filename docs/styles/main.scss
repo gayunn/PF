@@ -13,16 +13,16 @@
   font-family: "pretendard", sans-serif;
 }
 
-.main-page{
+.main-page {
   background-color: #fff;
-  transition: background-color .5s ease;
+  transition: background-color 0.5s ease;
 
-  &.main-dark{
+  &.main-dark {
     background-color: #000;
-    transition: background-color .5s ease;
- 
-   .section-project{
-      color:#fff;
+    transition: background-color 0.5s ease;
+
+    .section-project {
+      color: #fff;
     }
   }
 }
@@ -33,7 +33,7 @@
   overflow: hidden;
   position: relative;
 
-  .section-inner{
+  .section-inner {
     @include pretendard();
     padding: 100px 60px;
   }
@@ -56,6 +56,4 @@
   .plan-btn-next {
     right: 0;
   }
-
-@media (min-width: 750px) {
 }
