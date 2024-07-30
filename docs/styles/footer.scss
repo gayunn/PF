@@ -1,0 +1,31 @@
+.footer {
+  background-color: #f6ff95;
+  margin-top: -100px;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+
+  position: relative;
+  z-index: 2;
+
+  padding: 100px 60px;
+
+  .resume-btn {
+    display: flex;
+
+    .btn-txt {
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 72px;
+      mask-image: url(../includes/images/arrow.png);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: #000;
+    }
+  }
+}

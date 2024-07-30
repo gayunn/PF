@@ -4,6 +4,7 @@
 @use "./header";
 @use "./common";
 @use "./careers";
+@use "./footer";
 
 @mixin releway() {
   font-family: "raleway", sans-serif;
@@ -16,10 +17,13 @@
 .main-page {
   background-color: #fff;
   transition: background-color 0.5s ease;
+  padding-bottom: 50px;
 
   &.main-dark {
-    background-color: #000;
-    transition: background-color 0.5s ease;
+    .main-section {
+      background-color: rgb(185, 207, 250) !important;
+      transition: background-color 0.5s ease;
+    }
 
     .section-project {
       color: #fff;
@@ -32,7 +36,11 @@
   height: 100%;
   overflow: hidden;
   position: relative;
-  // margin: 100px 0;
+
+  background-color: #f5f1f0;
+  border-radius: 50px;
+
+  margin: -30px 0;
 
   .section-inner {
     @include pretendard();
@@ -50,6 +58,8 @@
 
 .section-main {
   @include releway();
+  z-index: 3;
+
   .section-inner {
     margin: 0;
     width: 100%;
@@ -58,41 +68,44 @@
     .main-title-container {
       padding: 300px 0;
       text-align: center;
+      @include releway();
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
 
-      .main-title {
-        overflow: hidden;
-        display: flex;
-        transition: font-size 0.2s ease;
-
-        span {
-          display: inline-block;
-          font-weight: 800;
-          text-transform: uppercase;
-        }
+      .main-txt {
+        text-align: left;
+        font-weight: 800;
+        text-transform: uppercase;
+        display: inline-block;
       }
 
-      @mixin write() {
+      .main-title {
+        display: flex;
         position: relative;
-        height: 0;
-        width: auto;
         overflow: hidden;
 
-        &.aos-animate {
-          height: 100%;
+        transition: font-size 0.2s ease;
+
+        &::after {
+          content: "";
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          border-radius: 50%;
+          background-color: #b6e659;
         }
       }
 
       .sub-title {
-        display: block;
-        text-align: left;
-        font-size: 52px;
-        font-weight: 700;
-        text-transform: uppercase;
+        overflow: hidden;
+        display: flex;
+        transition: font-size 0.2s ease;
+      }
 
-        &--write {
-          @include write();
-          display: inline-block;
-        }
+      .sub-txt {
+        overflow: hidden;
+        transition: font-size 0.2s ease;
       }
     }
   }
@@ -107,7 +120,7 @@
       gap: 50px;
       padding: 20px 0;
 
-      animation: marqueeTxt 20s linear infinite;
+      animation: marqueeTxt 10s linear infinite;
 
       &-txt {
         @include releway();
@@ -137,6 +150,14 @@
       .main-title {
         font-size: 150px;
       }
+
+      .sub-title {
+        font-size: 100px;
+      }
+
+      .sub-txt {
+        font-size: 90px;
+      }
     }
   }
 }
@@ -156,12 +177,28 @@
   }
 
   .section-inner {
-    padding-left: 20px;
     .main-title-container {
-      padding: 200px 0;
+      padding: 200px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       .main-title {
-        font-size: 80px;
+        font-size: 60px;
+
+        &::after {
+          position: absolute;
+          right: -20px;
+          top: -10px;
+        }
+      }
+
+      .sub-title {
+        font-size: 55px;
+      }
+
+      .sub-txt {
+        font-size: 40px;
       }
     }
   }
