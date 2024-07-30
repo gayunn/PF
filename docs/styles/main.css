@@ -208,6 +208,7 @@ body {
 
 .section-careers {
   position: relative;
+  transition: background-color 0.5s ease;
 }
 .section-careers .careers-list {
   position: relative;
@@ -264,7 +265,7 @@ body {
   opacity: 0.7;
   border-radius: 50%;
   margin: auto;
-  background: radial-gradient(circle, rgb(25, 72, 139) 0%, rgba(25, 72, 139, 0.05) 80%);
+  background: radial-gradient(circle, rgb(250, 255, 120) 0%, rgba(250, 255, 120, 0.05) 80%);
   transition: 0.3s linear;
 }
 .section-careers .careers-list .careers-item .careers-box {
@@ -489,31 +490,81 @@ body {
 }
 .footer {
   background-color: #f6ff95;
-  margin-top: -100px;
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
   position: relative;
   z-index: 2;
-  padding: 100px 60px;
 }
-.footer .resume-btn {
+.footer .footer-inner {
+  margin-top: -100px;
+  padding: 100px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.footer .footer-inner .mail-visual {
+  display: inline-block;
+  margin-inline: auto;
+}
+.footer .footer-inner .mail-visual img {
+  animation: upDown 5s 3s linear infinite;
+}
+.footer .footer-inner .my-links {
+  display: flex;
+  color: #535353;
+}
+.footer .footer-inner .resume-btn {
   display: flex;
 }
-.footer .resume-btn .btn-txt {
+.footer .footer-inner .resume-btn .btn-txt {
   display: block;
 }
-.footer .resume-btn::after {
+.footer .footer-inner .footer-desc {
+  margin-top: 30px;
+}
+.footer .footer-inner .footer-desc::before {
   content: "";
   display: block;
-  width: 72px;
-  height: 72px;
-  mask-image: url(../includes/images/arrow.png);
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  background-color: #000;
+  width: auto;
+  height: 1px;
+  background-color: #999;
+  margin-bottom: 20px;
+  margin-inline: auto;
 }
 
+@media all and (max-width: 1920px) {
+  .footer .my-links {
+    font-size: 30px;
+    gap: 50px;
+  }
+  .footer .mail-visual {
+    width: 393px;
+  }
+  .footer .footer-desc {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .footer .my-links {
+    font-size: 20px;
+    gap: 20px;
+  }
+  .footer .mail-visual {
+    width: 200px;
+  }
+  .footer .footer-desc {
+    font-size: 12px;
+  }
+}
+@keyframes upDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10%);
+  }
+}
 .main-page {
   background-color: #fff;
   transition: background-color 0.5s ease;
@@ -526,15 +577,27 @@ body {
 .main-page.main-dark .section-project {
   color: #fff;
 }
+.main-page.main-deep .section-careers {
+  background-color: #000 !important;
+  transition: background-color 0.5s ease;
+  color: #fff;
+}
+.main-page.main-deep .section-careers .company-name {
+  color: #fff !important;
+}
+.main-page.main-deep .section-careers .careers-circle {
+  opacity: 1;
+}
 
 .main-section {
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
-  background-color: #f5f1f0;
   border-radius: 50px;
   margin: -30px 0;
+  background-color: #f5f1f0;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(6, 6, 8, 0.0708575581) 100%);
 }
 .main-section .section-inner {
   font-family: "pretendard", sans-serif;

@@ -15,7 +15,7 @@ const MainModule = (() => {
 
   function handleScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
+  
     // Header visibility
     if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
       header.classList.add('header--hidden');
@@ -23,13 +23,21 @@ const MainModule = (() => {
       header.classList.remove('header--hidden');
     }
     lastScrollTop = scrollTop;
-
+  
     // Works section background change
     if (worksSection && mainBody) {
       const worksSectionRect = worksSection.getBoundingClientRect();
       mainBody.classList.toggle("main-dark", worksSectionRect.top <= 0);
     }
+  
+    // Career section deep background change
+    const careerSection = document.getElementById('careers');
+    if (careerSection && mainBody) {
+      const careerSectionRect = careerSection.getBoundingClientRect();
+      mainBody.classList.toggle("main-deep", careerSectionRect.top <= 0);
+    }
   }
+
   function initModules() {
     [careers].forEach(module => {
       if (module && typeof module.init === 'function') {
@@ -76,3 +84,4 @@ const MainModule = (() => {
 })();
 
 document.addEventListener('DOMContentLoaded', MainModule.init);
+console.log('안녕하세요, 저의 포트폴리오를 봐주셔서 감사합니다. 아직 작업 중인 점 참고 부탁 드립니다.');
