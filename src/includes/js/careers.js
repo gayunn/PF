@@ -1,50 +1,57 @@
 // careers.js
+// 기간 계산 함수
+// careers.js
 
-export function calculateCareerDuration(startDate) {
-  const currentDate = new Date();
-  const start = new Date(startDate);
-  if (isNaN(start.getTime())) {
-    throw new Error('Invalid start date');
-  }
-  
-  let years = currentDate.getFullYear() - start.getFullYear();
-  let months = currentDate.getMonth() - start.getMonth();
-
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-
-  return `${years}년 ${months}개월 차`;
-}
-
-function init() {
-  document.addEventListener('DOMContentLoaded', () => {
-    const durationElement = document.querySelector('.careers-duration');
+const CareersModule = (function() {
+  // 기간 계산 함수
+  function calculateDuration(startDate) {
+    const currentDate = new Date();
+    const start = new Date(startDate);
+    const difference = currentDate - start;
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
     
-    if (durationElement) {
-      const finishDateElement = durationElement.querySelector('.final-date');
-      if (finishDateElement) {
-        try {
-          finishDateElement.textContent = calculateCareerDuration('2021-05-04');
-        } catch (error) {
-          console.error('Error calculating career duration:', error);
-        }
+    let years = Math.floor(days / 365);
+    let months = Math.floor((days % 365) / 30);
+    let remainingDays = days % 30;
+    
+    let result = '';
+    if (years > 0) result += `${years}년 `;
+    if (months > 0) result += `${months}개월 `;
+    // if (remainingDays > 0) result += `${remainingDays}일`;
+    
+    return result.trim();
+  }
+
+  // 기간 표시 함수
+  function displayDurations() {
+    const finalDateElements = document.querySelectorAll('.final-date');
+    
+    finalDateElements.forEach(element => {
+      const startDate = element.getAttribute('data-start-date');
+      
+      if (startDate) {
+        const duration = calculateDuration(startDate);
+        element.textContent = duration;
       } else {
-        console.warn('Element with class "finish-date" not found.');
+        console.error('시작 날짜가 지정되지 않았습니다.');
       }
+    });
+  }
+
+  // 초기화 
+  function init() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', displayDurations);
     } else {
-      console.warn('Element with class "careers-duration" not found.');
+      displayDurations();
     }
-  });
-}
+  }
 
-function handleResize() {
-  // 필요한 경우 크기 조정 처리
-  console.log('Window resized, handle if necessary');
-}
+  // API
+  return {
+    init: init
+  };
+})();
 
-export default {
-  init,
-  handleResize
-};
+// 모듈 내보내기
+export default CareersModule;

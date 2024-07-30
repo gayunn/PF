@@ -210,12 +210,14 @@ body {
   position: relative;
 }
 .section-careers .careers-list {
-  gap: 30px;
+  position: relative;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  gap: 80px;
   width: 100%;
-  position: relative;
+  margin-top: 60px;
 }
 .section-careers .careers-list::before {
   content: "";
@@ -233,9 +235,10 @@ body {
   font-family: "Pretendard", sans-serif;
   width: 100%;
   line-height: 1.4;
-  color: #19488b;
+  color: #999;
   text-align: right;
   position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -252,9 +255,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
   z-index: 2;
   color: #fff;
   font-size: 30px;
@@ -264,14 +265,10 @@ body {
   border-radius: 50%;
   margin: auto;
   background: radial-gradient(circle, rgb(25, 72, 139) 0%, rgba(25, 72, 139, 0.05) 80%);
-  transition: all 0.5s ease;
+  transition: 0.3s linear;
 }
 .section-careers .careers-list .careers-item .careers-box {
   position: relative;
-}
-.section-careers .careers-list .careers-item .careers-box:nth-child(even) {
-  padding-right: 50%;
-  margin-right: 60px;
 }
 .section-careers .careers-list .careers-item .careers-box .company-name {
   font-family: "raleway", sans-serif;
@@ -279,6 +276,7 @@ body {
   font-size: 35px;
   font-weight: 700;
   margin-top: -20px;
+  color: #000;
 }
 .section-careers .careers-list .careers-item .careers-box .careers-duration {
   display: inline-block;
@@ -286,6 +284,17 @@ body {
 }
 .section-careers .careers-list .careers-item .careers-box .company-desc {
   margin-top: 15px;
+  position: relative;
+  padding-top: 20px;
+}
+.section-careers .careers-list .careers-item .careers-box .company-desc::before {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 1px;
+  background-color: #ddd;
+  position: absolute;
+  top: 0;
 }
 
 .section-project .project-inner {
@@ -363,27 +372,29 @@ body {
   font-size: 18px;
 }
 
-.detail-btn {
-  display: flex;
-  width: auto;
-  margin-top: 100px;
+@media all and (max-width: 1920px) {
+  .careers-item:nth-child(even) .careers-box {
+    padding-right: 50%;
+    margin-right: 60px;
+  }
+  .careers-item:nth-child(even) .company-desc::before {
+    right: 0;
+  }
+  .careers-item:nth-child(odd) .careers-box {
+    padding-left: 50%;
+    margin-left: 60px;
+    text-align: left;
+  }
+  .careers-item:nth-child(odd) .careers-box .company-desc::before {
+    left: 0;
+  }
+  .careers-item .careers-circle {
+    position: relative;
+  }
+  .careers-item .careers-box {
+    margin-top: -88px;
+  }
 }
-.detail-btn .btn-txt {
-  font-family: "pretendard", sans-serif;
-  display: block;
-}
-.detail-btn::after {
-  content: "";
-  display: block;
-  width: 72px;
-  height: 72px;
-  mask-image: url(../includes/images/arrow.png);
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  background-color: #000;
-}
-
 @media screen and (max-width: 750px) {
   .section-careers {
     gap: 40px;
@@ -391,24 +402,24 @@ body {
   .section-careers .careers-list {
     align-items: flex-start;
     position: relative;
+    flex-direction: column-reverse;
   }
   .section-careers .careers-list::before {
-    left: 30px;
-    width: 2px;
-    margin-left: -1.5px;
+    left: 20px;
   }
-  .section-careers .careers-list .careers-item {
+  .section-careers .careers-item {
     width: 100%;
     height: 100%;
     color: #000;
-    background-color: transparent;
-    border-radius: 0;
-    align-items: flex-start;
-    text-align: left;
-    padding-left: 80px;
     font-size: 16px;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-left: -14px;
   }
-  .section-careers .careers-list .careers-item .careers-circle {
+  .section-careers .careers-item .company-desc::before {
+    left: 0;
+  }
+  .section-careers .careers-item .careers-circle {
     width: 70px;
     height: 70px;
     position: absolute;
@@ -416,18 +427,21 @@ body {
     top: 50%;
     transform: translateY(-50%);
   }
-  .section-careers .careers-list .careers-item .careers-box {
+  .section-careers .careers-item .careers-box {
     padding-left: 10px;
+    margin-left: 80px;
+    margin-top: 0;
+    text-align: left;
   }
-  .section-careers .careers-list .careers-item .careers-box:nth-child(even) {
+  .section-careers .careers-item .careers-box:nth-child(even) {
     padding-right: 0;
     margin-right: 0;
   }
-  .section-careers .careers-list .careers-item .careers-box .company-name {
+  .section-careers .careers-item .careers-box .company-name {
     font-size: 25px;
     margin-top: 0;
   }
-  .section-careers .careers-list .careers-item .careers-box .careers-duration {
+  .section-careers .careers-item .careers-box .careers-duration {
     font-size: 18px;
   }
   .section-project {
@@ -473,12 +487,40 @@ body {
     display: inline-block;
   }
 }
+.footer {
+  background-color: #f6ff95;
+  margin-top: -100px;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  position: relative;
+  z-index: 2;
+  padding: 100px 60px;
+}
+.footer .resume-btn {
+  display: flex;
+}
+.footer .resume-btn .btn-txt {
+  display: block;
+}
+.footer .resume-btn::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 72px;
+  mask-image: url(../includes/images/arrow.png);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: #000;
+}
+
 .main-page {
   background-color: #fff;
   transition: background-color 0.5s ease;
+  padding-bottom: 50px;
 }
-.main-page.main-dark {
-  background-color: #000;
+.main-page.main-dark .main-section {
+  background-color: rgb(185, 207, 250) !important;
   transition: background-color 0.5s ease;
 }
 .main-page.main-dark .section-project {
@@ -490,6 +532,9 @@ body {
   height: 100%;
   overflow: hidden;
   position: relative;
+  background-color: #f5f1f0;
+  border-radius: 50px;
+  margin: -30px 0;
 }
 .main-section .section-inner {
   font-family: "pretendard", sans-serif;
@@ -505,6 +550,7 @@ body {
 
 .section-main {
   font-family: "raleway", sans-serif;
+  z-index: 3;
 }
 .section-main .section-inner {
   margin: 0;
@@ -514,33 +560,39 @@ body {
 .section-main .section-inner .main-title-container {
   padding: 300px 0;
   text-align: center;
+  font-family: "raleway", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.section-main .section-inner .main-title-container .main-txt {
+  text-align: left;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: inline-block;
 }
 .section-main .section-inner .main-title-container .main-title {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  transition: font-size 0.2s ease;
+}
+.section-main .section-inner .main-title-container .main-title::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #b6e659;
+}
+.section-main .section-inner .main-title-container .sub-title {
   overflow: hidden;
   display: flex;
   transition: font-size 0.2s ease;
 }
-.section-main .section-inner .main-title-container .main-title span {
-  display: inline-block;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-.section-main .section-inner .main-title-container .sub-title {
-  display: block;
-  text-align: left;
-  font-size: 52px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-.section-main .section-inner .main-title-container .sub-title--write {
-  position: relative;
-  height: 0;
-  width: auto;
+.section-main .section-inner .main-title-container .sub-txt {
   overflow: hidden;
-  display: inline-block;
-}
-.section-main .section-inner .main-title-container .sub-title--write.aos-animate {
-  height: 100%;
+  transition: font-size 0.2s ease;
 }
 .section-main .marguee-container {
   overflow: hidden;
@@ -551,7 +603,7 @@ body {
   display: flex;
   gap: 50px;
   padding: 20px 0;
-  animation: marqueeTxt 20s linear infinite;
+  animation: marqueeTxt 10s linear infinite;
 }
 .section-main .marguee-container .marquee-txt {
   font-family: "raleway", sans-serif;
@@ -573,6 +625,12 @@ body {
   .section-inner .main-title-container .main-title {
     font-size: 150px;
   }
+  .section-inner .main-title-container .sub-title {
+    font-size: 100px;
+  }
+  .section-inner .main-title-container .sub-txt {
+    font-size: 90px;
+  }
 }
 @media screen and (max-width: 750px) {
   .main-page {
@@ -585,14 +643,25 @@ body {
     font-size: 42px;
     font-weight: 600;
   }
-  .section-inner {
-    padding-left: 20px;
-  }
   .section-inner .main-title-container {
-    padding: 200px 0;
+    padding: 200px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .section-inner .main-title-container .main-title {
-    font-size: 80px;
+    font-size: 60px;
+  }
+  .section-inner .main-title-container .main-title::after {
+    position: absolute;
+    right: -20px;
+    top: -10px;
+  }
+  .section-inner .main-title-container .sub-title {
+    font-size: 55px;
+  }
+  .section-inner .main-title-container .sub-txt {
+    font-size: 40px;
   }
 }
 @keyframes marqueeTxt {
