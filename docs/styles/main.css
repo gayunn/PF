@@ -149,10 +149,19 @@ body {
 
 .header {
   width: 100%;
-  height: fv(140);
   display: flex;
   justify-content: space-between;
-  padding: 10px 30px;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease-in-out;
+}
+.header.header--hidden {
+  transform: translateY(-100%);
 }
 .header .logo {
   font-family: "raleway", sans-serif;
@@ -201,56 +210,92 @@ body {
   position: relative;
 }
 .section-careers .careers-list {
-  font-family: "raleway", sans-serif;
-  display: flex;
-  flex-direction: column;
   gap: 30px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+.section-careers .careers-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  margin-left: -1.5px;
+  z-index: 1;
+  background-color: #e9ecef;
+  height: 100%;
 }
 .section-careers .careers-list .careers-item {
   font-family: "Pretendard", sans-serif;
   width: 100%;
-  line-height: 35px;
-}
-.section-careers .careers-list .careers-item .company-name {
-  display: block;
-  font-size: 32px;
-}
-.section-careers .careers-list .careers-item .careers-duration {
-  display: inline-block;
-  color: #999;
-  font-weight: 600;
-}
-.section-careers .careers-list .careers-item .careers-duration .final-date {
+  line-height: 1.4;
   color: #19488b;
+  text-align: right;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+.section-careers .careers-list .careers-item::defore {
+  display: table;
+  content: "";
+}
+.section-careers .careers-list .careers-item .careers-circle {
+  width: 80px;
+  height: 80px;
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  aspect-ratio: 1;
+  opacity: 0.7;
+  border-radius: 50%;
+  margin: auto;
+  background: radial-gradient(circle, rgb(25, 72, 139) 0%, rgba(25, 72, 139, 0.05) 80%);
+  transition: all 0.5s ease;
+}
+.section-careers .careers-list .careers-item .careers-box {
+  position: relative;
+}
+.section-careers .careers-list .careers-item .careers-box:nth-child(even) {
+  padding-right: 50%;
+  margin-right: 60px;
+}
+.section-careers .careers-list .careers-item .careers-box .company-name {
+  font-family: "raleway", sans-serif;
+  display: block;
+  font-size: 35px;
+  font-weight: 700;
+  margin-top: -20px;
+}
+.section-careers .careers-list .careers-item .careers-box .careers-duration {
+  display: inline-block;
+  font-size: 22px;
+}
+.section-careers .careers-list .careers-item .careers-box .company-desc {
+  margin-top: 15px;
 }
 
 .section-project .project-inner {
-  position: relative;
   width: 100%;
 }
 .section-project .project-inner .project-list {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   flex-direction: column-reverse;
 }
-.section-project .project-inner .project-list .project-item {
-  width: 50%;
-  text-align: center;
-  display: flex;
-  text-align: left;
-  padding: 5px 20px;
-}
-.section-project .project-inner .project-list .project-item .project-name {
-  display: block;
-  font-size: 25px;
-}
-.section-project .project-inner .project-list .project-item .project-desc {
-  display: block;
-  font-size: 23px;
-}
-
 .section-project .project-inner .project-list .project-item {
   width: 100%;
   position: relative;
@@ -282,12 +327,29 @@ body {
 .section-project .project-inner .project-list .project-link {
   display: inline-block;
   display: grid;
-  grid-template-columns: 10fr 26fr 50fr;
+  grid-template-columns: 5fr 16fr 50fr;
+  align-items: center;
+  gap: 50px;
   width: 100%;
-  padding: 100px 0;
+  padding: 80px 0;
   margin-inline: auto;
   box-sizing: border-box;
   font-size: 20px;
+}
+.section-project .project-inner .project-list .project-link .project-date {
+  text-align: center;
+}
+.section-project .project-inner .project-list .project-link .project-date .end-date {
+  position: relative;
+  display: block;
+  padding-top: 25px;
+}
+.section-project .project-inner .project-list .project-link .project-date .end-date::before {
+  content: "/";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
 }
 .section-project .project-inner .project-list .project-link .project-name {
   font-size: 22px;
@@ -296,7 +358,121 @@ body {
 .section-project .project-inner .project-list .project-link .project-name .project-sub {
   display: block;
 }
+.section-project .project-inner .project-list .project-link .project-desc {
+  line-height: 1.5;
+  font-size: 18px;
+}
 
+.detail-btn {
+  display: flex;
+  width: auto;
+  margin-top: 100px;
+}
+.detail-btn .btn-txt {
+  font-family: "pretendard", sans-serif;
+  display: block;
+}
+.detail-btn::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 72px;
+  mask-image: url(../includes/images/arrow.png);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: #000;
+}
+
+@media screen and (max-width: 750px) {
+  .section-careers {
+    gap: 40px;
+  }
+  .section-careers .careers-list {
+    align-items: flex-start;
+    position: relative;
+  }
+  .section-careers .careers-list::before {
+    left: 30px;
+    width: 2px;
+    margin-left: -1.5px;
+  }
+  .section-careers .careers-list .careers-item {
+    width: 100%;
+    height: 100%;
+    color: #000;
+    background-color: transparent;
+    border-radius: 0;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 80px;
+    font-size: 16px;
+  }
+  .section-careers .careers-list .careers-item .careers-circle {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .section-careers .careers-list .careers-item .careers-box {
+    padding-left: 10px;
+  }
+  .section-careers .careers-list .careers-item .careers-box:nth-child(even) {
+    padding-right: 0;
+    margin-right: 0;
+  }
+  .section-careers .careers-list .careers-item .careers-box .company-name {
+    font-size: 25px;
+    margin-top: 0;
+  }
+  .section-careers .careers-list .careers-item .careers-box .careers-duration {
+    font-size: 18px;
+  }
+  .section-project {
+    transition: all 0.3s ease;
+  }
+  .section-project .project-inner {
+    width: 100%;
+  }
+  .section-project .project-inner .project-list .project-item::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+  }
+  .section-project .project-inner .project-list .project-item:first-child::after {
+    display: none;
+  }
+  .section-project .project-inner .project-list .project-link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 0;
+    gap: 20px;
+  }
+  .section-project .project-inner .project-list .project-link .project-date {
+    position: relative;
+    text-align: left;
+    display: flex;
+    gap: 25px;
+  }
+  .section-project .project-inner .project-list .project-link .project-date .end-date {
+    padding-top: 0;
+  }
+  .section-project .project-inner .project-list .project-link .project-date .end-date::before {
+    content: "- ";
+    position: absolute;
+    left: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .section-project .project-inner .project-list .project-link .project-name .project-sub {
+    display: inline-block;
+  }
+}
 .main-page {
   background-color: #fff;
   transition: background-color 0.5s ease;
@@ -317,16 +493,113 @@ body {
 }
 .main-section .section-inner {
   font-family: "pretendard", sans-serif;
-  padding: 100px 60px;
 }
 .main-section .section-title {
   font-family: "raleway", sans-serif;
-  font-size: 52px;
   text-transform: uppercase;
   white-space: nowrap;
   font-weight: 600;
-  margin: 10px 0;
-}
-.main-section .section-inner {
   margin: 30px 0;
+  transition: all 0.2s ease;
+}
+
+.section-main {
+  font-family: "raleway", sans-serif;
+}
+.section-main .section-inner {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.section-main .section-inner .main-title-container {
+  padding: 300px 0;
+  text-align: center;
+}
+.section-main .section-inner .main-title-container .main-title {
+  overflow: hidden;
+  display: flex;
+  transition: font-size 0.2s ease;
+}
+.section-main .section-inner .main-title-container .main-title span {
+  display: inline-block;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.section-main .section-inner .main-title-container .sub-title {
+  display: block;
+  text-align: left;
+  font-size: 52px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.section-main .section-inner .main-title-container .sub-title--write {
+  position: relative;
+  height: 0;
+  width: auto;
+  overflow: hidden;
+  display: inline-block;
+}
+.section-main .section-inner .main-title-container .sub-title--write.aos-animate {
+  height: 100%;
+}
+.section-main .marguee-container {
+  overflow: hidden;
+  width: 100%;
+  background-color: #98c2ff;
+}
+.section-main .marguee-container .marquee {
+  display: flex;
+  gap: 50px;
+  padding: 20px 0;
+  animation: marqueeTxt 20s linear infinite;
+}
+.section-main .marguee-container .marquee-txt {
+  font-family: "raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 70px;
+  width: 200%;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+@media all and (max-width: 1920px) {
+  .section-inner {
+    margin: 100px 40px;
+  }
+  .section-inner .section-title {
+    font-size: 72px;
+  }
+  .section-inner .main-title-container .main-title {
+    font-size: 150px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .main-page {
+    min-width: 320px;
+  }
+  .section-inner {
+    margin: clamp(71.875px, 0px + 5.2083333333vw, 100px) clamp(28.75px, 0px + 2.0833333333vw, 40px);
+  }
+  .section-inner .section-title {
+    font-size: 42px;
+    font-weight: 600;
+  }
+  .section-inner {
+    padding-left: 20px;
+  }
+  .section-inner .main-title-container {
+    padding: 200px 0;
+  }
+  .section-inner .main-title-container .main-title {
+    font-size: 80px;
+  }
+}
+@keyframes marqueeTxt {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
