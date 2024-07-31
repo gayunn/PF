@@ -29,6 +29,22 @@
       color: #fff;
     }
   }
+
+  &.main-deep {
+    .section-careers {
+      background-color: #000 !important;
+      transition: background-color 0.5s ease;
+      color: #fff;
+
+      .company-name {
+        color: #fff !important;
+      }
+
+      .careers-circle {
+        opacity: 1;
+      }
+    }
+  }
 }
 
 .main-section {
@@ -37,10 +53,10 @@
   overflow: hidden;
   position: relative;
 
-  background-color: #f5f1f0;
   border-radius: 50px;
-
   margin: -30px 0;
+  background-color: #f5f1f0;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(6, 6, 8, 0.07085755813953487) 100%);
 
   .section-inner {
     @include pretendard();
