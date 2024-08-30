@@ -1,11 +1,24 @@
 .footer {
   background-color: #f6ff95;
-  margin-top: -100px;
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
   position: relative;
   z-index: 2;
+}
+.footer .footer-inner {
+  margin-top: -100px;
   padding: 100px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.footer .footer-inner .mail-visual {
+  display: inline-block;
+  margin-inline: auto;
+}
+.footer .footer-inner .mail-visual img {
+  animation: upDown 5s 3s linear infinite;
 }
 .footer .updown-img {
   width: 150px;
@@ -27,16 +40,42 @@
   font-size: 18px;
   line-height: 1.5;
 }
-.footer .resume-btn .btn-txt {
+.footer .footer-inner .my-links {
+  display: flex;
+  color: #535353;
+}
+.footer .footer-inner .resume-btn {
+  display: flex;
+}
+.footer .footer-inner .resume-btn .btn-txt {
   display: block;
 }
-.footer .resume-btn::after {
-  content: "";
-  background-image: url(../assets/images/arrow.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100px;
-  height: 80px;
+.footer .footer-inner .footer-desc {
+  margin-top: 30px;
+}
+@media all and (max-width: 1920px) {
+  .footer .my-links {
+    font-size: 30px;
+    gap: 50px;
+  }
+  .footer .mail-visual {
+    width: 393px;
+  }
+  .footer .footer-desc {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .footer .my-links {
+    font-size: 20px;
+    gap: 20px;
+  }
+  .footer .mail-visual {
+    width: 200px;
+  }
+  .footer .footer-desc {
+    font-size: 12px;
+  }
 }
 
 @keyframes upDown {

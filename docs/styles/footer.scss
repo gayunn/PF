@@ -1,11 +1,9 @@
 .footer {
   background-color: #f6ff95;
-  margin-top: -100px;
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
   position: relative;
   z-index: 2;
-
   padding: 100px 60px;
 
   .updown-img{
@@ -27,23 +25,41 @@
     text-align: center;
   }
 
-  .resume-btn {
-    font-size: 18px;
-    line-height: 1.5;
-    .btn-txt {
-      display: block;
+}
+
+//pc
+@media all and (max-width: 1920px) {
+  .footer {
+    .my-links {
+      font-size: 30px;
+      gap: 50px;
+    }
+    .mail-visual {
+      width: 393px;
     }
 
-    &::after{
-      content: "";
-      background-image: url(../assets/images/arrow.png);
-      background-repeat: no-repeat;
-      background-position: center;
-      width: 100px;
-      height: 80px;
+    .footer-desc {
+      font-size: 18px;
     }
   }
 }
+
+//mobile
+@media screen and (max-width: 750px) {
+  .footer {
+    .my-links {
+      font-size: 20px;
+      gap: 20px;
+    }
+    .mail-visual {
+      width: 200px;
+    }
+    .footer-desc {
+      font-size: 12px;
+    }
+  }
+}
+
 
 
 @keyframes upDown {

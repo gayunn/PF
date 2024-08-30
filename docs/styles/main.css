@@ -208,6 +208,7 @@ body {
 
 .section-careers {
   position: relative;
+  transition: background-color 0.5s ease;
 }
 .section-careers .careers-list {
   position: relative;
@@ -264,7 +265,7 @@ body {
   opacity: 0.7;
   border-radius: 50%;
   margin: auto;
-  background: radial-gradient(circle, rgb(25, 72, 139) 0%, rgba(25, 72, 139, 0.05) 80%);
+  background: radial-gradient(circle, rgb(250, 255, 120) 0%, rgba(250, 255, 120, 0.05) 80%);
   transition: 0.3s linear;
 }
 .section-careers .careers-list .careers-item .careers-box {
@@ -489,12 +490,22 @@ body {
 }
 .footer {
   background-color: #f6ff95;
-  margin-top: -100px;
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
   position: relative;
   z-index: 2;
+}
+.footer .footer-inner {
+  margin-top: -100px;
   padding: 100px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.footer .footer-inner .mail-visual {
+  display: inline-block;
+  margin-inline: auto;
 }
 .footer .updown-img {
   width: 150px;
@@ -504,7 +515,14 @@ body {
 .footer .updown-img img {
   animation: upDown 2s 0.5s ease infinite;
 }
-.footer .my-links {
+.footer .footer-inner .mail-visual img {
+  animation: upDown 5s 3s linear infinite;
+}
+.footer .footer-inner .my-links {
+  display: flex;
+  color: #535353;
+}
+.footer .footer-inner .resume-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -516,16 +534,37 @@ body {
   font-size: 18px;
   line-height: 1.5;
 }
-.footer .resume-btn .btn-txt {
+.footer .footer-inner .resume-btn .btn-txt {
   display: block;
 }
-.footer .resume-btn::after {
-  content: "";
-  background-image: url(../assets/images/arrow.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100px;
-  height: 80px;
+.footer .footer-inner .footer-desc {
+  margin-top: 30px;
+}
+
+
+@media all and (max-width: 1920px) {
+  .footer .my-links {
+    font-size: 30px;
+    gap: 50px;
+  }
+  .footer .mail-visual {
+    width: 393px;
+  }
+  .footer .footer-desc {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .footer .my-links {
+    font-size: 20px;
+    gap: 20px;
+  }
+  .footer .mail-visual {
+    width: 200px;
+  }
+  .footer .footer-desc {
+    font-size: 12px;
+  }
 }
 
 @keyframes upDown {
@@ -548,15 +587,27 @@ body {
 .main-page.main-dark .section-project {
   color: #fff;
 }
+.main-page.main-deep .section-careers {
+  background-color: #000 !important;
+  transition: background-color 0.5s ease;
+  color: #fff;
+}
+.main-page.main-deep .section-careers .company-name {
+  color: #fff !important;
+}
+.main-page.main-deep .section-careers .careers-circle {
+  opacity: 1;
+}
 
 .main-section {
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
-  background-color: #f5f1f0;
   border-radius: 50px;
   margin: -30px 0;
+  background-color: #f5f1f0;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(6, 6, 8, 0.0708575581) 100%);
 }
 .main-section .section-inner {
   font-family: "pretendard", sans-serif;
