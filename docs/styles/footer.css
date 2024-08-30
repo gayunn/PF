@@ -7,20 +7,43 @@
   z-index: 2;
   padding: 100px 60px;
 }
-.footer .resume-btn {
+.footer .updown-img {
+  width: 150px;
+  height: 150px;
+  margin-inline: auto;
+}
+.footer .updown-img img {
+  animation: upDown 2s 0.5s ease infinite;
+}
+.footer .my-links {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: center;
+}
+.footer .resume-btn {
+  font-size: 18px;
+  line-height: 1.5;
 }
 .footer .resume-btn .btn-txt {
   display: block;
 }
 .footer .resume-btn::after {
   content: "";
-  display: block;
-  width: 72px;
-  height: 72px;
-  mask-image: url(../includes/images/arrow.png);
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  background-color: #000;
+  background-image: url(../assets/images/arrow.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100px;
+  height: 80px;
+}
+
+@keyframes upDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10%);
+  }
 }

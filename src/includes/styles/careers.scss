@@ -1,0 +1,221 @@
+
+.section-careers {
+  position: relative;
+
+  @mixin releway() {
+    font-family: "raleway", sans-serif;
+  }
+  @mixin pretendard() {
+    font-family: "Pretendard", sans-serif;
+  }
+
+  .careers-list {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 80px;
+    width: 100%;
+
+    margin-top: 60px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      margin-left: -1.5px;
+      z-index: 1;
+      background-color: #e9ecef;
+      height: 100%;
+    }
+
+    .careers-item {
+      @include pretendard();
+      width: 100%;
+      line-height: 1.4;
+      color: #999;
+      text-align: right;
+
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: 0.3s ease;
+
+      &::defore {
+        display: table;
+        content: "";
+      }
+
+      .careers-circle {
+        width: 80px;
+        height: 80px;
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        z-index: 2;
+
+        color: #fff;
+        font-size: 30px;
+        font-weight: 700;
+
+        aspect-ratio: 1;
+        opacity: 0.7;
+        border-radius: 50%;
+        margin: auto;
+        background: radial-gradient(circle, rgba(25, 72, 139, 1) 0%, rgba(25, 72, 139, 0.05) 80%);
+        transition: 0.3s linear;
+      }
+
+      .careers-box {
+        position: relative;
+
+        .company-name {
+          @include releway();
+          display: block;
+          font-size: 35px;
+          font-weight: 700;
+          margin-top: -20px;
+          color: #000;
+        }
+
+        .careers-duration {
+          display: inline-block;
+          font-size: 22px;
+        }
+
+        .company-desc {
+          margin-top: 15px;
+          position: relative;
+          padding-top: 20px;
+
+          &::before {
+            content: "";
+            display: block;
+            width: 50%;
+            height: 1px;
+            background-color: #ddd;
+            position: absolute;
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//pc
+@media all and (max-width: 1920px) {
+  .careers-item {
+    &:nth-child(even) {
+      .careers-box {
+        padding-right: 50%;
+        margin-right: 60px;
+      }
+
+      .company-desc {
+        &::before {
+          right: 0;
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      .careers-box {
+        padding-left: 50%;
+        margin-left: 60px;
+        text-align: left;
+
+        .company-desc {
+          &::before {
+            left: 0;
+          }
+        }
+      }
+    }
+    .careers-circle {
+      position: relative;
+    }
+
+    .careers-box {
+      margin-top: -88px;
+    }
+  }
+}
+
+// tablet
+@media all and (min-width: 750px) and (max-width: 1380px) {
+  //스타일 입력
+}
+
+//mobile
+@media screen and (max-width: 750px) {
+  .section-careers {
+    gap: 40px;
+
+    .careers-list {
+      align-items: flex-start;
+      position: relative;
+      flex-direction: column-reverse;
+
+      &::before {
+        left: 20px;
+      }
+    }
+
+    .careers-item {
+      width: 100%;
+      height: 100%;
+      color: #000;
+      font-size: 16px;
+      align-items: flex-start;
+      flex-direction: row;
+      margin-left: -14px;
+
+      .company-desc {
+        &::before {
+          left: 0;
+        }
+      }
+
+      .careers-circle {
+        width: 70px;
+        height: 70px;
+
+        position: absolute;
+        left: -6px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .careers-box {
+        padding-left: 10px;
+        margin-left: 80px;
+        margin-top: 0;
+        text-align: left;
+
+        &:nth-child(even) {
+          padding-right: 0;
+          margin-right: 0;
+        }
+
+        .company-name {
+          font-size: 25px;
+          margin-top: 0;
+        }
+
+        .careers-duration {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+}

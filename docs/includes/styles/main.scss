@@ -1,9 +1,9 @@
 @use "../includes/utils" as *;
 @use "./reset";
-@use "./intro";
 @use "./header";
 @use "./common";
 @use "./careers";
+@use "./project";
 @use "./footer";
 
 @mixin releway() {

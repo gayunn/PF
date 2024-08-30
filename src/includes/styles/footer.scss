@@ -1,6 +1,6 @@
 .footer {
   background-color: #f6ff95;
-  margin-top: -100px;
+  margin-top: -90px;
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
   position: relative;
@@ -19,29 +19,16 @@
   }
 
   .my-links{
+    position: relative;
+  }
+
+  .my-links-list{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;    
     flex-wrap: wrap;
     gap: 20px;
     text-align: center;
-  }
-
-  .resume-btn {
-    font-size: 18px;
-    line-height: 1.5;
-    .btn-txt {
-      display: block;
-    }
-
-    &::after{
-      content: "";
-      background-image: url(../assets/images/arrow.png);
-      background-repeat: no-repeat;
-      background-position: center;
-      width: 100px;
-      height: 80px;
-    }
   }
 }
 

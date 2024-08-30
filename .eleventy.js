@@ -15,11 +15,11 @@ module.exports = function(eleventyConfig) {
   });
 
   // CSS 파일 복사
-  eleventyConfig.addPassthroughCopy("src/styles");
+  eleventyConfig.addPassthroughCopy("src/includes/styles");
   // JavaScript 파일 복사
   eleventyConfig.addPassthroughCopy("src/includes/js");
   // 다른 정적 파일들도 필요하다면 여기에 추가
-  // eleventyConfig.addPassthroughCopy("src/images");
+   eleventyConfig.addPassthroughCopy("src/assets/images");
 
   return {
     dir: {
