@@ -1,6 +1,4 @@
-@mixin pretendard() {
-  font-family: "pretendard", sans-serif;
-}
+
 .section-careers {
   position: relative;
   transition: background-color 0.5s ease;
@@ -8,7 +6,6 @@
   @mixin releway() {
     font-family: "raleway", sans-serif;
   }
-
   @mixin pretendard() {
     font-family: "Pretendard", sans-serif;
   }
@@ -109,96 +106,6 @@
             position: absolute;
             top: 0;
           }
-        }
-      }
-    }
-  }
-}
-
-.section-project {
-  .project-inner {
-    width: 100%;
-
-    .project-list {
-      display: flex;
-      flex-direction: column;
-      flex-direction: column-reverse;
-
-      .project-item {
-        width: 100%;
-        position: relative;
-
-        &::before {
-          content: "";
-          display: block;
-          width: 0;
-          height: 1px;
-          background-color: #ddd;
-          transform-origin: center;
-        }
-
-        &::after {
-          content: "";
-          display: block;
-          width: 0;
-          height: 1px;
-          background-color: #ddd;
-        }
-
-        &:hover {
-          &::before {
-            float: right;
-            width: 100%;
-            transition: width 0.5s ease;
-          }
-          &::after {
-            width: 100%;
-            transition: width 0.5s ease;
-          }
-        }
-      }
-
-      .project-link {
-        display: inline-block;
-        display: grid;
-        grid-template-columns: 5fr 16fr 50fr;
-        align-items: center;
-        gap: 50px;
-        width: 100%;
-        padding: 80px 0;
-        margin-inline: auto;
-        box-sizing: border-box;
-        font-size: 20px;
-
-        .project-date {
-          text-align: center;
-          .end-date {
-            position: relative;
-            display: block;
-            padding-top: 25px;
-
-            &::before {
-              content: "/";
-              position: absolute;
-              left: 50%;
-              transform: translateX(-50%);
-              top: 0;
-            }
-          }
-        }
-
-        .project-name {
-          font-size: 22px;
-          font-weight: 700;
-
-          .project-sub {
-            display: block;
-          }
-        }
-
-        .project-desc {
-          line-height: 1.5;
-          font-size: 18px;
         }
       }
     }
@@ -312,60 +219,4 @@
     }
   }
 
-  .section-project {
-    transition: all 0.3s ease;
-    .project-inner {
-      width: 100%;
-
-      .project-list {
-        .project-item {
-          &::after {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 1px;
-            background-color: #ddd;
-          }
-
-          &:first-child {
-            &::after {
-              display: none;
-            }
-          }
-        }
-        .project-link {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          padding: 40px 0;
-          gap: 20px;
-
-          .project-date {
-            position: relative;
-            text-align: left;
-            display: flex;
-            gap: 25px;
-
-            .end-date {
-              padding-top: 0;
-
-              &::before {
-                content: "- ";
-                position: absolute;
-                left: -16px;
-                top: 50%;
-                transform: translateY(-50%);
-              }
-            }
-          }
-
-          .project-name {
-            .project-sub {
-              display: inline-block;
-            }
-          }
-        }
-      }
-    }
-  }
 }

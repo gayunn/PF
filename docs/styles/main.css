@@ -507,6 +507,14 @@ body {
   display: inline-block;
   margin-inline: auto;
 }
+.footer .updown-img {
+  width: 150px;
+  height: 150px;
+  margin-inline: auto;
+}
+.footer .updown-img img {
+  animation: upDown 2s 0.5s ease infinite;
+}
 .footer .footer-inner .mail-visual img {
   animation: upDown 5s 3s linear infinite;
 }
@@ -516,6 +524,15 @@ body {
 }
 .footer .footer-inner .resume-btn {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: center;
+}
+.footer .resume-btn {
+  font-size: 18px;
+  line-height: 1.5;
 }
 .footer .footer-inner .resume-btn .btn-txt {
   display: block;
@@ -523,15 +540,7 @@ body {
 .footer .footer-inner .footer-desc {
   margin-top: 30px;
 }
-.footer .footer-inner .footer-desc::before {
-  content: "";
-  display: block;
-  width: auto;
-  height: 1px;
-  background-color: #999;
-  margin-bottom: 20px;
-  margin-inline: auto;
-}
+
 
 @media all and (max-width: 1920px) {
   .footer .my-links {
@@ -557,12 +566,13 @@ body {
     font-size: 12px;
   }
 }
+
 @keyframes upDown {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10%);
+    transform: translateY(10%);
   }
 }
 .main-page {
